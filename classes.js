@@ -30,6 +30,19 @@
 */
 
 //Code Here
+class Employee {
+  constructor(first_name, last_name, email, age) {
+  this.first_name = first_name;
+  this.last_name = last_name;
+  this.email = email;
+  this.age = age;
+  }
+  makeWidget(widget) {
+    return (`${first_name} + ${last_name} widget`)
+  }
+}
+var employeeMe = new Employee("Derek",'Scott','email',27)
+Employee.makeWidget()
 
 
 ////////// PROBLEM 2 //////////
@@ -48,7 +61,15 @@
 */
 
 //Code Here
+class Manager extends makeWidget{
+  constructor(first_name, last_name, email, age) {
+    super(fire,hire)
+    this.fire = fire;
+    this.hire = hire;
+    
 
+  }
+}
 
 ////////// PROBLEM 3 //////////
 
