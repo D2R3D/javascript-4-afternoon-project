@@ -29,20 +29,23 @@
   Call your class Employee and receive all the data in the constructor in the order listed above.
 */
 
-//Code Here
+
 class Employee {
   constructor(first_name, last_name, email, age) {
   this.first_name = first_name;
   this.last_name = last_name;
   this.email = email;
   this.age = age;
+  
+   }
+   makeWidget() {
+     return `${this.first_name} ${this.last_name} Widget`
+   }
   }
-  makeWidget(widget) {
-    return (`${first_name} + ${last_name} widget`)
-  }
-}
-var employeeMe = new Employee("Derek",'Scott','email',27)
-Employee.makeWidget()
+  
+
+
+
 
 
 ////////// PROBLEM 2 //////////
@@ -61,16 +64,29 @@ Employee.makeWidget()
 */
 
 //Code Here
-class Manager extends makeWidget{
-  constructor(first_name, last_name, email, age) {
-    super(fire,hire)
-    this.fire = fire;
-    this.hire = hire;
-    
 
+class Manager extends Employee {
+  constructor(first_name, last_name, email, age,reports){
+  super(first_name, last_name, email, age,)
+  this.reports = [];
   }
+
+hire(newEmployee) {
+  this.reports.push(newEmployee)
 }
 
+
+  fire (index) {
+this.reports.splice(index,1)
+  }
+}
+let newEmployee = new Employee();
+
+
+
+  
+
+///
 ////////// PROBLEM 3 //////////
 
 /*
@@ -93,6 +109,67 @@ class Manager extends makeWidget{
 */
 
 //Code Here
+
+class ProgressiveManager extends Manager{
+  constructor(first_name, last_name, email, age, reports, title = 'Not a manager', bonus = 0){
+    super(first_name, last_name, email, age, reports)
+    this.title = title;
+    this.bonus = bonus;
+  }
+  fire(index){
+    super.fire(index);
+    this.bonus += 100;
+    this.Update();
+  }
+  hire(employee){
+    super.hire(employee);
+    this.Update();
+  }
+  Update(){
+    //0
+    if(this.reports.length == 0){
+      this.title = 'Not a manager';
+    }
+    //1-3
+    else if (this.reports.length < 4){
+      this.title = 'Barely Manager';
+    }
+    //4-10
+    else if (this.reports.length < 11){
+      this.title = 'Mostly Manager';
+    }
+    //11-50
+    else if (this.reports.length < 51){
+      this.title = 'Manager';
+    }
+    //51-100
+    else if (this.reports.length < 101){
+      this.title = 'Manager Plus';
+    }
+    //100+
+    else{
+      this.title = 'Bestest Manager';
+    }
+  }
+}
+  // if(this.reports.length == 0){
+  //   this.title ="Not a Manager"
+  // }
+  // else if (this.reports.length <= 3) {
+  //   this.title = "Barely Manager"
+  // }
+  // else if (this.reports.length <= 11) {
+  //   this.title = "Mostly Manager"
+  // }
+  // else if(this.reports.length <= 51) {
+  //   this.title = "Manager"
+  // }
+  // else if (this.reports.length <= 101) {
+  //   this.title = "Manager Plus"
+  // }
+  // else {
+  //   this.title = "Bestest Manager"
+  // }
 
 
 
