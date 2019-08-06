@@ -109,7 +109,7 @@ let context3 = vacation;
 
 class Family {
   constructor(numParents, numKids, numPets) {
-    this.numParents = numPets;
+    this.numParents = numParents;
     this.numKids = numKids;
     this.numPets = numPets;
   }
